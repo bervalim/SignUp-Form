@@ -9,22 +9,22 @@
         <div>
           <input type="text" placeholder="Nome:" formControlName="name" />
           <p
-            *ngIf="this.signupForm.get('name')?.errors?.['required'] && this.signupForm.get('name')?.value !== null"
+            *ngIf="errors.name?.['required'] && signupForm.get('name')?.value !== null"
           >
             O nome é obrigatório
           </p>
-          <p *ngIf="this.signupForm.get('name')?.errors?.['minlength']">
+          <p *ngIf="errors.name?.['minlength']">
             O nome precisa ter no mínimo 8 caracteres
           </p>
         </div>
         <div>
           <input type="email" placeholder="E-mail:" formControlName="email" />
           <p
-            *ngIf="this.signupForm.get('email')?.errors?.['required'] && this.signupForm.get('email')?.value !== null"
+            *ngIf="errors.email?.['required'] && signupForm.get('email')?.value !== null"
           >
             O email é obrigatório!
           </p>
-          <p *ngIf="this.signupForm.get('email')?.errors?.['email']">
+          <p *ngIf="errors.email?.['email']">
             Forneça um formato de e-mail válido!
           </p>
         </div>
@@ -35,14 +35,14 @@
             formControlName="password"
           />
           <p
-            *ngIf="this.signupForm.get('password')?.errors?.['required'] && this.signupForm.get('password')?.value !== null"
+            *ngIf="errors.password?.['required'] && signupForm.get('password')?.value !== null"
           >
             A senha é obrigatória!
           </p>
-          <p *ngIf="this.signupForm.get('password')?.errors?.['minlength']">
+          <p *ngIf="errors.password?.['minlength']">
             A senha deve ter no mínimo 8 caracteres
           </p>
-          <p *ngIf="this.signupForm.get('password')?.errors?.['pattern']">
+          <p *ngIf="errors.password?.['pattern']">
             A senha precisa conter pelo menos uma letra maiúscula, uma letra
             minúscula, um número e um caractere especial
           </p>
@@ -50,11 +50,11 @@
         <div>
           <input type="text" placeholder="Telefone:" formControlName="phone" />
           <p
-            *ngIf="this.signupForm.get('phone')?.errors?.['required'] && this.signupForm.get('phone')?.value !== null"
+            *ngIf="errors.phone?.['minlength'] && signupForm.get('phone')?.value !== null"
           >
             O telefone é obrigatório!
           </p>
-          <p *ngIf="this.signupForm.get('phone')?.errors?.['pattern']">
+          <p *ngIf="errors.phone?.['pattern']">
             Por favor, insira um número de telefone válido no formato (XX)
             XXXX-XXXX ou (XX) XXXXX-XXXX.
           </p>
@@ -66,9 +66,7 @@
             <option value="female">Feminino</option>
             <option value="other">Outro</option>
           </select>
-          <p
-            *ngIf="this.signupForm.get('sex')?.errors?.['required'] && this.signupForm.get('sex')?.touched"
-          >
+          <p *ngIf="errors.sex?.['required'] && signupForm.get('sex')?.touched">
             Informar o sexo é obrigatório!
           </p>
         </div>

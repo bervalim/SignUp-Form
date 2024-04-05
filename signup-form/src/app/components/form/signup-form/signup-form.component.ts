@@ -30,6 +30,16 @@ export class SignupFormComponent {
     sex: new FormControl('', [Validators.required]),
   });
 
+  get errors() {
+    return {
+      name: this.signupForm.get('name')?.errors,
+      email: this.signupForm.get('email')?.errors,
+      password: this.signupForm.get('password')?.errors,
+      phone: this.signupForm.get('phone')?.errors,
+      sex: this.signupForm.get('sex')?.errors,
+    };
+  }
+
   submitSignUpForm() {
     console.log(this.signupForm.get('name')?.errors);
     if (this.signupForm.status == 'VALID') {
