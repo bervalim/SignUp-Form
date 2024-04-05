@@ -1,5 +1,5 @@
 <div>
-  <form>
+  <form [formGroup]="signupForm" (ngSubmit)="submitSignUpForm()">
     <div class="flexbox">
       <div>
         <img src="../../../../assets/signupImg.jpg" />
@@ -7,19 +7,23 @@
       <div>
         <h2>Cadastre-se</h2>
         <div>
-          <input type="text" placeholder="Nome:" />
+          <input type="text" placeholder="Nome:" formControlName="name" />
         </div>
         <div>
-          <input type="email" placeholder="E-mail:" />
+          <input type="email" placeholder="E-mail:" formControlName="email" />
         </div>
         <div>
-          <input type="password" placeholder="Senha:" />
+          <input
+            type="password"
+            placeholder="Senha:"
+            formControlName="password"
+          />
         </div>
         <div>
-          <input type="text" placeholder="Telefone:" />
+          <input type="text" placeholder="Telefone:" formControlName="phone" />
         </div>
         <div>
-          <select name="sex">
+          <select name="sex" formControlName="sex">
             <option value="">Sexo</option>
             <option value="male">Masculino</option>
             <option value="female">Feminino</option>
