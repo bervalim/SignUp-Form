@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup-form',
@@ -15,6 +16,8 @@ import {
   styleUrl: './signup-form.component.scss',
 })
 export class SignupFormComponent {
+  constructor(private toastr: ToastrService) {}
+
   signupForm = new FormGroup({
     name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -44,10 +47,10 @@ export class SignupFormComponent {
     console.log(this.signupForm.get('name')?.errors);
     if (this.signupForm.status == 'VALID') {
       console.log(this.signupForm.value);
+      this.toastr.success('Cadastro realizado com sucesso!');
       this.signupForm.reset({ sex: '' });
-      alert('Cadastro Realizado com Sucesso!!');
     } else {
-      alert('Não foi possível concluir o cadastro!!');
+      this.toastr.error('Não foi possível concluir o cadastro!!');
     }
   }
 }
