@@ -42,6 +42,10 @@
           <p *ngIf="this.signupForm.get('password')?.errors?.['minlength']">
             A senha deve ter no mínimo 8 caracteres
           </p>
+          <p *ngIf="this.signupForm.get('password')?.errors?.['pattern']">
+            A senha precisa conter pelo menos uma letra maiúscula, uma letra
+            minúscula, um número e um caractere especial
+          </p>
         </div>
         <div>
           <input type="text" placeholder="Telefone:" formControlName="phone" />
@@ -50,11 +54,9 @@
           >
             O telefone é obrigatório!
           </p>
-          <p *ngIf="this.signupForm.get('phone')?.errors?.['minlength']">
-            O telefone deve ter 9 digitos
-          </p>
-          <p *ngIf="this.signupForm.get('phone')?.errors?.['maxlength']">
-            O telefone deve ter 9 digitos
+          <p *ngIf="this.signupForm.get('phone')?.errors?.['pattern']">
+            Por favor, insira um número de telefone válido no formato (XX)
+            XXXX-XXXX ou (XX) XXXXX-XXXX.
           </p>
         </div>
         <div>

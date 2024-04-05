@@ -21,11 +21,11 @@ export class SignupFormComponent {
     password: new FormControl(null, [
       Validators.required,
       Validators.minLength(8),
+      Validators.pattern(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/),
     ]),
     phone: new FormControl(null, [
       Validators.required,
-      Validators.minLength(9),
-      Validators.maxLength(9),
+      Validators.pattern(/^\(?(?:\d{2})\)?[-. ]?(?:\d{4,5})[-. ]?\d{4}$/),
     ]),
     sex: new FormControl('', [Validators.required]),
   });
