@@ -31,7 +31,7 @@ export class SignupFormComponent {
   });
 
   submitSignUpForm() {
-    console.log(this.signupForm.status);
+    console.log(this.signupForm.get('name')?.errors);
     if (this.signupForm.status == 'VALID') {
       console.log(this.signupForm.value);
       this.signupForm.reset({ sex: '' });
