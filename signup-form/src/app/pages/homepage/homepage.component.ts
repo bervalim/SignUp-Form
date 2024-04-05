@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { SignupFormComponent } from '../../components/form/signup-form/signup-form.component';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [],
+  imports: [SignupFormComponent],
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.scss'
+  styleUrl: './homepage.component.scss',
 })
-export class HomepageComponent {
-
-}
+export class HomepageComponent {}
